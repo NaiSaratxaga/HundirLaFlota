@@ -17,10 +17,12 @@ DEFINIR función imprimir_tablero(tablero, ocultar_barcos):
     PARA cada fila en tablero:
         PARA cada celda en fila:
             SI ocultar_barcos y celda es SIMBOLO_BARCO:
-                IMPRIMIR SIMBOLO_AGUA
+                IMPRIMIR SIMBOLO_AGUA (no me está funcionando tema iconos)
             SINO:
                 IMPRIMIR celda
         IMPRIMIR nueva línea
+--------------
+colocar barcos aleatorios
 
 DEFINIR función colocar_barcos(tablero, lista_de_barcos):
     PARA cada barco en lista_de_barcos:
@@ -31,7 +33,7 @@ DEFINIR función colocar_barcos(tablero, lista_de_barcos):
                 COLOCAR el barco en el tablero
 
 DEFINIR función ataque(tablero, fila, columna):
-    SI la celda es SIMBOLO_BARCO:
+    SI la celda es SIMBOLO_BARCO:(ahora lo tengo como una B)
         MARCAR como SIMBOLO_TOCADO
         RETORNAR "Tocado"
     SI la celda es SIMBOLO_AGUA:
@@ -74,8 +76,10 @@ LLAMAR juego()
 Explicación del flujo
 Crear los tableros: Se generan dos tableros de 10x10 (uno para el jugador y otro para la computadora).
 Colocar los barcos: Se colocan aleatoriamente barcos de distintos tamaños en ambos tableros.
+(me falta esa parte, ahora los tengo de forma fija)
+
 Turnos de disparo:
-El jugador ingresa coordenadas para disparar al tablero de la computadora.
-La computadora genera coordenadas aleatorias para disparar al tablero del jugador.
+El jugador ingresa coordenadas para disparar al tablero del ordenador.
+El ordenador genera coordenadas aleatorias para disparar al tablero del jugador.
 Verificación de impactos: Se comprueba si el disparo impacta un barco o cae al agua.
 Fin del juego: El juego termina cuando todos los barcos de un jugador son hundidos.

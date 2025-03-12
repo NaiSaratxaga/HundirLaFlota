@@ -7,6 +7,7 @@ import time
 
 
 
+
 mensaje_bienvenida()
 tablero_computer = crear_tablero(TAMANO)
 tablero_computer_visualizar = crear_tablero(TAMANO)

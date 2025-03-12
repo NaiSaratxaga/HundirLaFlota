@@ -19,7 +19,14 @@ def posicionar_barcos_fijos(tablero):
     tablero[1][2] = 'B'
     tablero[1][3] = 'B'
     
+    tablero[1][8] = 'B'
+    tablero[1][7] = 'B'
+    tablero[1][6] = 'B'
     
+    tablero[7][1] = 'B'
+    tablero[7][2] = 'B'
+  
+   
     
 def disparo(tablero,tablero_mostrar,i,j):
     if tablero[i][j] == 'B':
@@ -27,7 +34,7 @@ def disparo(tablero,tablero_mostrar,i,j):
         tablero[i][j] = "X"
         tablero_mostrar[i][j] = "X"
         return True
-    elif tablero[i][j] == "~":
+    elif tablero[i][j] == "O":
         print("Agua")
         tablero[i][j] = "O"
         tablero_mostrar[i][j] = "X"
@@ -44,7 +51,7 @@ def visualizar(tablero):
     
     
 def mensaje_bienvenida():
-    print("Bienvenido al juego de Hundir La Flota 🚢🔥")
+    print("Bienvenido al juego de Hundir La Flota BX")
     print()
     
     

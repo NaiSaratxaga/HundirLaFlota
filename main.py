@@ -29,9 +29,13 @@ while True:
     print("")
     i = int(input("Introduce la fila, por favor: "))
     j = int(input("Introduce la columna, por favor: "))
-    acierto =  disparo(tablero_computer,tablero_computer_visualizar,i,j)
-    if not acierto:
-        break
+    acierto = disparo(tablero_computer, tablero_computer_visualizar, i, j)
+
+    if acierto:
+        print("¡Acertaste!")
+    else:
+        print("¡Fallaste! Intenta nuevamente.")
+    
     os.system("cls")
     
     

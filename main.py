@@ -10,14 +10,19 @@ import time
 mensaje_bienvenida()
 tablero_computer = crear_tablero(TAMANO)
 tablero_computer_visualizar = crear_tablero(TAMANO)
-#print("Tablero vacío")
-#pprint.pprint(tablero_computer)
+print()
+
+print("Tablero vacío")
+pprint.pprint(tablero_computer)
+
 posicionar_barcos_fijos(tablero_computer)
 print("Tablero computer con barcos fijos. Te doy 5 segundos para que los memorices...")
 visualizar(tablero_computer)
 time.sleep(5)
 os.system("cls")
 print()
+
+
 while True:
     print("Tus disparos")
     visualizar(tablero_computer_visualizar)
@@ -28,3 +33,5 @@ while True:
     if not acierto:
         break
     os.system("cls")
+    
+    

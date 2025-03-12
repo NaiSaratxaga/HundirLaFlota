@@ -2,4 +2,5 @@
 # definimos constantes. 
 # solo tocamos la configuración del usuario
 
-tamano = 10
+TAMANO = 10
+DIFICULTAD = 1

@@ -27,13 +27,13 @@ def disparo(tablero,tablero_mostrar,i,j):
         tablero[i][j] = "X"
         tablero_mostrar[i][j] = "X"
         return True
-    elif tablero[i][j] == " ":
+    elif tablero[i][j] == "~":
         print("Agua")
         tablero[i][j] = "O"
         tablero_mostrar[i][j] = "X"
         return False
     else:
-        print("Ya habías disparado allí, inútil")
+        print("¡Fallaste! has desperdiciando un tiro")
         return False
     
     
@@ -44,7 +44,7 @@ def visualizar(tablero):
     
     
 def mensaje_bienvenida():
-    print("Bienvenido al juego de HLF")
+    print("Bienvenido al juego de Hundir La Flota 🚢🔥")
     print()
     
     

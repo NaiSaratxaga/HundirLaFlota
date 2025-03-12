@@ -1,0 +1,81 @@
+ANOTACIONES Y COMO EMPEZAR EL PROYECTO
+
+INICIAR juego
+
+DEFINIR constantes:
+    TAMAÑO_TABLERO = 10
+    SIMBOLO_AGUA = "~"  (tengo que revisar como meter símbolos o  emoticonos o colores)
+    SIMBOLO_BARCO = "B"
+    SIMBOLO_TOCADO = "X"
+    SIMBOLO_FALLO = "O"
+
+DEFINIR función crear_tablero():
+    CREAR un tablero de TAMAÑO_TABLERO x TAMAÑO_TABLERO lleno de SIMBOLO_AGUA o VACIOS
+    RETORNAR tablero
+
+DEFINIR función imprimir_tablero(tablero, ocultar_barcos):
+    PARA cada fila en tablero:
+        PARA cada celda en fila:
+            SI ocultar_barcos y celda es SIMBOLO_BARCO:
+                IMPRIMIR SIMBOLO_AGUA
+            SINO:
+                IMPRIMIR celda
+        IMPRIMIR nueva línea
+
+DEFINIR función colocar_barcos(tablero, lista_de_barcos):
+    PARA cada barco en lista_de_barcos:
+        MIENTRAS no pueda colocar barco:
+            GENERAR coordenada aleatoria
+            GENERAR dirección aleatoria (horizontal o vertical)
+            SI hay espacio suficiente y no hay barcos en la zona:
+                COLOCAR el barco en el tablero
+
+DEFINIR función ataque(tablero, fila, columna):
+    SI la celda es SIMBOLO_BARCO:
+        MARCAR como SIMBOLO_TOCADO
+        RETORNAR "Tocado"
+    SI la celda es SIMBOLO_AGUA:
+        MARCAR como SIMBOLO_FALLO
+        RETORNAR "Agua"
+    RETORNAR "Ya atacado"
+
+DEFINIR función juego():
+    CREAR tablero_jugador usando crear_tablero()
+    CREAR tablero_computadora usando crear_tablero()
+    
+    CREAR lista de barcos con tamaños [4, 3, 2, 1]
+
+    * 4 barcos de 1 posición de eslora
+    * 3 barcos de 2 posiciones de eslora
+    * 2 barcos de 3 posiciones de eslora
+    * 1 barco de 4 posiciones de eslora
+    
+    COLOCAR barcos en tablero_jugador
+    COLOCAR barcos en tablero_computadora
+    
+    MIENTRAS no haya ganador:
+        IMPRIMIR tablero de la computadora (sin mostrar barcos)
+        IMPRIMIR tablero del jugador
+        
+        PEDIR coordenadas de disparo al jugador
+        LLAMAR ataque(tablero_computadora, fila, columna)
+        
+        GENERAR disparo aleatorio de la computadora
+        LLAMAR ataque(tablero_jugador, fila, columna)
+        
+        COMPROBAR si alguien ha ganado
+
+    IMPRIMIR mensaje con el ganador
+
+LLAMAR juego()
+
+------------------------------------
+
+Explicación del flujo
+Crear los tableros: Se generan dos tableros de 10x10 (uno para el jugador y otro para la computadora).
+Colocar los barcos: Se colocan aleatoriamente barcos de distintos tamaños en ambos tableros.
+Turnos de disparo:
+El jugador ingresa coordenadas para disparar al tablero de la computadora.
+La computadora genera coordenadas aleatorias para disparar al tablero del jugador.
+Verificación de impactos: Se comprueba si el disparo impacta un barco o cae al agua.
+Fin del juego: El juego termina cuando todos los barcos de un jugador son hundidos.

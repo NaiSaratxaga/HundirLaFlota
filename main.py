@@ -10,48 +10,48 @@ print("!!Hola marinero!!, Bienvenido al juego de hundir la flota 🚢💥⚓️"
 
 print()
 print("Insrucciones del juego")
-print("Introduce tus coordenadas, fila y columna")
+print("Introduce tus coordenadas,")
 print()
 
 
-# mensaje_bienvenida()
+
 tablero_computer = crear_tablero(TAMANO)
 tablero_computer_visualizar = crear_tablero(TAMANO)
 print()
 
-""" print("Tablero vacío")
-pprint.pprint(tablero_computer)
- """
-imprimir_tablero
+print("Tablero vacío")
 pprint.pprint(tablero_computer)
 
+
 posicionar_barcos_fijos(tablero_computer)
-print("Tablero computer con barcos fijos. Te doy 5 segundos para que los memorices...")
+print("Tablero computer con barcos fijos. Te doy 5 segundos para que los memorices...") 
+
 visualizar(tablero_computer)
 time.sleep(5)
 os.system("cls")
 print()
 
 
-while True:
-    coordenadas = input("Introduce coordenadas (x y): ")
-    
-    # Validar entrada
-    # Elimina los espacios y verifica si solo hay números.
-    try:
+# Crear los tableros de los jugadores
+tablero_jugador = crear_tablero(tamano_tablero)
+tablero_ordenador = crear_tablero(tamano_tablero)
 
-        x, y = map(int, coordenadas.split(","))
+# Colocar barcos en ambos tableros
+colocar_barcos(tablero_jugador)
+colocar_barcos(tablero_ordenador)
 
-        if x < 0 or x >= 9 or y < 0 or y >= 9:
-            print("Coordenadas fuera del tablero, intenta de nuevo.")
-            continue  # Repite el ciclo sin continuar
+# Imprimir los tableros
+print("Tablero del Jugador:")
+imprimir_tablero(tablero_jugador)
 
-    # Si las coordenadas son válidas, salir del bucle
-        break
-    except Exception:
-        print("coordenadas no válidas")
+print("Tablero del Ordenador:")
+imprimir_tablero(tablero_ordenador)
 
-    os.system("cls")
+# Ejemplo de disparo del jugador
+print("Disparo del jugador a la casilla (2, 3):")
+disparo = disparar(tablero_ordenador, 2, 3)
+print(f"Disparo acertado: {disparo}")
+imprimir_tablero(tablero_ordenador)
 
 while True:
     print("Tus disparos")

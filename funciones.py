@@ -1,6 +1,6 @@
 
 import pprint
-from clases import *
+
 
 
 def crear_tablero(tamano):
@@ -8,7 +8,7 @@ def crear_tablero(tamano):
     return tablero
 
 
-def posicionar_barcos_fijos(tablero):
+""" def posicionar_barcos_fijos(tablero):
     tablero[3][3] = 'B'
     tablero[4][3] = 'B'
     tablero[5][3] = 'B'
@@ -24,7 +24,7 @@ def posicionar_barcos_fijos(tablero):
     tablero[1][6] = 'B'
     
     tablero[7][1] = 'B'
-    tablero[7][2] = 'B'
+    tablero[7][2] = 'B' """
   
    
     
@@ -92,29 +92,7 @@ def disparar(tablero, x, y):
         return False
     return None
 
-# Tamaño del tablero
-tamano_tablero = 10
 
-# Crear los tableros de los jugadores
-tablero_jugador = crear_tablero(tamano_tablero)
-tablero_ordenador = crear_tablero(tamano_tablero)
-
-# Colocar barcos en ambos tableros
-colocar_barcos(tablero_jugador)
-colocar_barcos(tablero_ordenador)
-
-# Imprimir los tableros
-print("Tablero del Jugador:")
-imprimir_tablero(tablero_jugador)
-
-print("Tablero del Ordenador:")
-imprimir_tablero(tablero_ordenador)
-
-# Ejemplo de disparo del jugador
-print("Disparo del jugador a la casilla (2, 3):")
-disparo = disparar(tablero_ordenador, 2, 3)
-print(f"Disparo acertado: {disparo}")
-imprimir_tablero(tablero_ordenador)
 
     
     

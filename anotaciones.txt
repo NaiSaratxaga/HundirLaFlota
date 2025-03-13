@@ -4,7 +4,7 @@ INICIAR juego
 
 DEFINIR constantes:
     TAMAÑO_TABLERO = 10
-    SIMBOLO_AGUA = " "  (tengo que revisar como meter símbolos o  emoticonos o colores)
+    SIMBOLO_AGUA = " "  (tengo que revisar como meter símbolos o  emoticonos o colores(de momento lo descarto))
     SIMBOLO_BARCO = "B"
     SIMBOLO_TOCADO = "X"
     SIMBOLO_FALLO = "O"
@@ -23,6 +23,8 @@ DEFINIR función imprimir_tablero(tablero, ocultar_barcos):
         IMPRIMIR nueva línea
 --------------
 colocar barcos aleatorios
+punto 3
+-------------
 
 DEFINIR función colocar_barcos(tablero, lista_de_barcos):
     PARA cada barco en lista_de_barcos:
@@ -83,3 +85,15 @@ El jugador ingresa coordenadas para disparar al tablero del ordenador.
 El ordenador genera coordenadas aleatorias para disparar al tablero del jugador.
 Verificación de impactos: Se comprueba si el disparo impacta un barco o cae al agua.
 Fin del juego: El juego termina cuando todos los barcos de un jugador son hundidos.
+
+----------------
+punto 3
+Como inicializar barcos aleatoriamente
+
+- generar coordenadas randint, generar números aleatorios.
+- Comprobar posición valida (repite hasta que que te da una posición válida)
+- Si es válida, colocar el barco
+  si no es válida
+ genera otra vez coordenadas
+- Meter en un bucle while 
+

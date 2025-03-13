@@ -51,7 +51,7 @@ def visualizar(tablero):
     
     
 def mensaje_bienvenida():
-    print("Bienvenido al juego de Hundir La Flota BX")
+    print("Bienvenido al juego de Hundir La Flota")
     print()
     
     

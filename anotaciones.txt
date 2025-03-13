@@ -4,7 +4,7 @@ INICIAR juego
 
 DEFINIR constantes:
     TAMAÑO_TABLERO = 10
-    SIMBOLO_AGUA = "~"  (tengo que revisar como meter símbolos o  emoticonos o colores)
+    SIMBOLO_AGUA = " "  (tengo que revisar como meter símbolos o  emoticonos o colores)
     SIMBOLO_BARCO = "B"
     SIMBOLO_TOCADO = "X"
     SIMBOLO_FALLO = "O"

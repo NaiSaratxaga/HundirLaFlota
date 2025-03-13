@@ -24,7 +24,7 @@ pprint.pprint(tablero_computer)
 
 
 posicionar_barcos_fijos(tablero_computer)
-print("Tablero computer con barcos fijos. Te doy 5 segundos para que los memorices...") 
+print("\nTablero computer con barcos fijos. Te doy 5 segundos para que los memorices...\n") 
 
 visualizar(tablero_computer)
 time.sleep(5)

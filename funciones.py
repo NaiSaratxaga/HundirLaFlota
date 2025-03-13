@@ -8,7 +8,7 @@ def crear_tablero(tamano):
     return tablero
 
 
-""" def posicionar_barcos_fijos(tablero):
+def posicionar_barcos_fijos(tablero):
     tablero[3][3] = 'B'
     tablero[4][3] = 'B'
     tablero[5][3] = 'B'
@@ -24,7 +24,7 @@ def crear_tablero(tamano):
     tablero[1][6] = 'B'
     
     tablero[7][1] = 'B'
-    tablero[7][2] = 'B' """
+    tablero[7][2] = 'B'
   
    
     

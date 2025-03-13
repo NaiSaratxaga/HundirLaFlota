@@ -31,6 +31,7 @@ time.sleep(5)
 os.system("cls")
 print()
 
+tamano_tablero = 10
 
 # Crear los tableros de los jugadores
 tablero_jugador = crear_tablero(tamano_tablero)

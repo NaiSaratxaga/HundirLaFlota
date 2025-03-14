@@ -1,72 +1,57 @@
 from funciones import *
 from variables import *
-from clases import *
-import os
 import pprint
 import time
 
-print()
-print("!!Hola marinero!!, Bienvenido al juego de hundir la flota 🚢💥⚓️")
+print("\n¡Hola marinero! Bienvenido al juego de Hundir la Flota 🚢💥⚓️\n")
+print("Instrucciones del juego:")
+print("Introduce tus coordenadas para disparar.\n")
 
-print()
-print("Insrucciones del juego")
-print("Introduce tus coordenadas,")
-print()
-
-
-
+# Crear los tableros del juego
 tablero_computer = crear_tablero(TAMANO)
 tablero_computer_visualizar = crear_tablero(TAMANO)
-print()
+tablero_jugador = crear_tablero(TAMANO)
+tablero_jugador_visualizar = crear_tablero(TAMANO)
 
-print("Tablero vacío")
+print("Tablero vacío del ordenador:")
 pprint.pprint(tablero_computer)
 
-
 posicionar_barcos_fijos(tablero_computer)
-print("\nTablero computer con barcos fijos. Te doy 5 segundos para que los memorices...\n") 
-
+print("\nTablero del ordenador con barcos fijos. Memorízalo en 5 segundos...\n")
 visualizar(tablero_computer)
 time.sleep(5)
-os.system("cls")
-print()
+limpiar_pantalla()
 
-tamano_tablero = 10
-
-# Crear los tableros de los jugadores
-tablero_jugador = crear_tablero(tamano_tablero)
-tablero_ordenador = crear_tablero(tamano_tablero)
+print("Tablero vacío del jugador:")
+pprint.pprint(tablero_jugador)
 
 # Colocar barcos en ambos tableros
 colocar_barcos(tablero_jugador)
-colocar_barcos(tablero_ordenador)
+colocar_barcos(tablero_computer)
 
-# Imprimir los tableros
+# Mostrar los tableros
 print("Tablero del Jugador:")
 imprimir_tablero(tablero_jugador)
+print("Tablero del Ordenador (oculto):")
+imprimir_tablero(tablero_computer_visualizar)
 
-print("Tablero del Ordenador:")
-imprimir_tablero(tablero_ordenador)
-
-# Ejemplo de disparo del jugador
-print("Disparo del jugador a la casilla (2, 3):")
-disparo = disparar(tablero_ordenador, 2, 3)
-print(f"Disparo acertado: {disparo}")
-imprimir_tablero(tablero_ordenador)
-
+# Bucle principal del juego
 while True:
-    print("Tus disparos")
-    visualizar(tablero_computer_visualizar)
-    print("")
-    i = int(input("Introduce la fila, por favor: "))
-    j = int(input("Introduce la columna, por favor: "))
-    acierto = disparo(tablero_computer, tablero_computer_visualizar, i, j)
+    try:
+        i = int(input("Introduce la fila, por favor: "))
+        j = int(input("Introduce la columna, por favor: "))
+        if i < 0 or i >= TAMANO or j < 0 or j >= TAMANO:
+            print("Coordenadas fuera de rango. Intenta de nuevo.")
+            continue
+    except ValueError:
+        print("Por favor, ingresa números válidos.")
+        continue  # Volver a pedir los datos
+
+    acierto = disparar(tablero_computer, tablero_computer_visualizar, i, j)
 
     if acierto:
         print("¡Acertaste!")
     else:
         print("¡Fallaste! Intenta nuevamente.")
-    
-    os.system("cls")
-    
-    
+
+    limpiar_pantalla()

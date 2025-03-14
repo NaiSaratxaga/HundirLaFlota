@@ -9,9 +9,12 @@ DEFINIR constantes:
     SIMBOLO_TOCADO = "X"
     SIMBOLO_FALLO = "O"
 
+1.REPRESENTAR TABLERO
+
 DEFINIR función crear_tablero():
     CREAR un tablero de TAMAÑO_TABLERO x TAMAÑO_TABLERO lleno de SIMBOLO_AGUA o VACIOS
     RETORNAR tablero
+    *Tengo que hacer una lista de listas (matriz) para representar el tablero.
 
 DEFINIR función imprimir_tablero(tablero, ocultar_barcos):
     PARA cada fila en tablero:
@@ -25,7 +28,7 @@ DEFINIR función imprimir_tablero(tablero, ocultar_barcos):
 colocar barcos aleatorios
 punto 3
 -------------
-
+2. COLOCAR BARCOS ALEATORIOS O FIJOS
 DEFINIR función colocar_barcos(tablero, lista_de_barcos):
     PARA cada barco en lista_de_barcos:
         MIENTRAS no pueda colocar barco:
@@ -34,6 +37,7 @@ DEFINIR función colocar_barcos(tablero, lista_de_barcos):
             SI hay espacio suficiente y no hay barcos en la zona:
                 COLOCAR el barco en el tablero
 
+3.PEDIR COORDENADAS PARA DISPARAR
 DEFINIR función ataque(tablero, fila, columna):
     SI la celda es SIMBOLO_BARCO:(ahora lo tengo como una B)
         MARCAR como SIMBOLO_TOCADO

@@ -1,8 +1,9 @@
-# Configuración del juego (editable por el usuario)
+# Configuración del juego 
 TAMANO = 10  # Tamaño del tablero (puede ajustarse)
-DIFICULTAD = 1  # Nivel de dificultad (1 = fácil, 2 = medio, 3 = difícil) (lo tengo que mirar, estoy en duda)
 
-NUM_BARCOS = 5  # Número de barcos en el tablero
-LONGITUD_BARCOS = [2, 3, 3, 4, 5]  # Longitudes de los barcos
-MAX_DISPAROS = 20  # Número máximo de disparos permitidos
+NUM_BARCOS_ESLORA_1 = 4  # Número de barcos en el tablero
+NUM_BARCOS_ESLORA_2 = 3  # Número de barcos en el tablero
+NUM_BARCOS_ESLORA_3 = 2  # Número de barcos en el tablero
+NUM_BARCOS_ESLORA_4 = 1  # Número de barcos en el tablero
 
+TOTAL_UNIDADES_BARCO = NUM_BARCOS_ESLORA_1 + (NUM_BARCOS_ESLORA_2 * 2) + (NUM_BARCOS_ESLORA_3 * 3)+ (NUM_BARCOS_ESLORA_4 * 4)

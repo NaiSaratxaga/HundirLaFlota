@@ -1,57 +1,64 @@
-from funciones import *
-from variables import *
-import pprint
-import time
+from clases import *
 
-print("\n¡Hola marinero! Bienvenido al juego de Hundir la Flota 🚢💥⚓️\n")
-print("Instrucciones del juego:")
-print("Introduce tus coordenadas para disparar.\n")
+#Estoy creando instancia de la clase jugador
+usuario = Jugador()
+ordenador = Jugador()
 
-# Crear los tableros del juego
-tablero_computer = crear_tablero(TAMANO)
-tablero_computer_visualizar = crear_tablero(TAMANO)
-tablero_jugador = crear_tablero(TAMANO)
-tablero_jugador_visualizar = crear_tablero(TAMANO)
+#inicializamos los jugador con el metodo de la clase jugador
+usuario.inicializar() 
+ordenador.inicializar() 
 
-print("Tablero vacío del ordenador:")
-pprint.pprint(tablero_computer)
+turno = "usuario"
+ganador = ""
 
-posicionar_barcos_fijos(tablero_computer)
-print("\nTablero del ordenador con barcos fijos. Memorízalo en 5 segundos...\n")
-visualizar(tablero_computer)
-time.sleep(5)
-limpiar_pantalla()
-
-print("Tablero vacío del jugador:")
-pprint.pprint(tablero_jugador)
-
-# Colocar barcos en ambos tableros
-colocar_barcos(tablero_jugador)
-colocar_barcos(tablero_computer)
-
-# Mostrar los tableros
-print("Tablero del Jugador:")
-imprimir_tablero(tablero_jugador)
-print("Tablero del Ordenador (oculto):")
-imprimir_tablero(tablero_computer_visualizar)
-
-# Bucle principal del juego
 while True:
-    try:
-        i = int(input("Introduce la fila, por favor: "))
-        j = int(input("Introduce la columna, por favor: "))
-        if i < 0 or i >= TAMANO or j < 0 or j >= TAMANO:
-            print("Coordenadas fuera de rango. Intenta de nuevo.")
+    print("Estado del usuario:")
+    usuario.imprimir_estado_jugador()
+    print()
+    print("Estado del ordenador:")
+    ordenador.imprimir_estado_jugador()
+    print("--------------------------")
+    print()
+    
+    if turno == "usuario":
+        print("Turno usuario:")
+        
+        fila = int(input("Introduce la fila:"))
+        columna = int(input("Introduce la columna:"))
+        
+        # dispara el usuario
+        impacto = ordenador.recibir_disparo(fila, columna)
+        usuario.registrar_disparo(fila, columna, impacto)
+        
+        if usuario.he_ganado():
+            ganador = "usuario"
+            break
+        
+        # dependerá de si ha acertado o no
+        if impacto:
+            print("El usuario ha impactado en un barco, sigue disparando!")
             continue
-    except ValueError:
-        print("Por favor, ingresa números válidos.")
-        continue  # Volver a pedir los datos
-
-    acierto = disparar(tablero_computer, tablero_computer_visualizar, i, j)
-
-    if acierto:
-        print("¡Acertaste!")
+        else:
+            turno = "ordenador"
     else:
-        print("¡Fallaste! Intenta nuevamente.")
-
-    limpiar_pantalla()
+        print("Turno ordenador:")
+        
+        fila_ordenador = generar_numero_aleatorio()
+        columna_ordenador = generar_numero_aleatorio()
+        print(f"El ordenador dispara  (fila: {fila_ordenador} columna: {columna_ordenador})")
+        
+        # dispara el ordenador
+        impacto_ordenador = usuario.recibir_disparo(fila_ordenador, columna_ordenador)
+        ordenador.registrar_disparo(fila_ordenador, columna_ordenador, impacto_ordenador)
+        
+        if ordenador.he_ganado():
+            ganador = "ordenador"
+            break
+        
+        if impacto_ordenador:
+            print("El ordenador ha impactado en un barco, sigue disparando")
+            continue
+        else:
+            turno = "usuario"
+        
+print(f"El ganador es: {ganador}")

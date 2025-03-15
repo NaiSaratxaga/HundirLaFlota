@@ -16,7 +16,7 @@ class Tablero:
                         
     def recibir_disparo(self, fila, columna):
         valor_coordenada = self.tablero[fila - 1][columna - 1]
-        if valor_coordenada == "B":
+        if valor_coordenada == "B" or valor_coordenada == "X":
             self.tablero[fila - 1][columna - 1] = "X"
             print(f"Acierto! (fila: {fila} columna: {columna})")
             return True
@@ -51,17 +51,17 @@ class Jugador:
         #barco de 4
         self.tablero_propio.poner_barco("H", 1, 1, 4)
         # 2 barcos de 3
-        # self.tablero_propio.poner_barco("V", 3, 2, 3)
-        # self.tablero_propio.poner_barco("V", 7, 9, 3)
+        self.tablero_propio.poner_barco("V", 3, 2, 3)
+        self.tablero_propio.poner_barco("V", 7, 9, 3)
         # # 3 barcos de 2
-        # self.tablero_propio.poner_barco("H", 6, 5, 2)
-        # self.tablero_propio.poner_barco("V", 7, 3, 2)
-        # self.tablero_propio.poner_barco("H", 10, 5, 2)
+        self.tablero_propio.poner_barco("H", 6, 5, 2)
+        self.tablero_propio.poner_barco("V", 7, 3, 2)
+        self.tablero_propio.poner_barco("H", 10, 5, 2)
         # # 4 barcos de 1
-        # self.tablero_propio.poner_barco("H", 2, 7, 1)
-        # self.tablero_propio.poner_barco("V", 9, 1, 1)
-        # self.tablero_propio.poner_barco("H", 4, 8, 1)
-        # self.tablero_propio.poner_barco("V", 3, 10, 1)
+        self.tablero_propio.poner_barco("H", 2, 7, 1)
+        self.tablero_propio.poner_barco("V", 9, 1, 1)
+        self.tablero_propio.poner_barco("H", 4, 8, 1)
+        self.tablero_propio.poner_barco("V", 3, 10, 1)
     
     def imprimir_estado_jugador(self):
         print("Tablero propio:")

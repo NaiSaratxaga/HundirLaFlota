@@ -1,4 +1,15 @@
 from clases import *
+from variables import *
+from funciones import *
+
+limpiar_pantalla()
+
+# Menú principal
+print("\n¡Hola marinero! Bienvenido al juego de Hundir la Flota 🚢💥⚓️\n")
+print("Instrucciones del juego:")
+print("Cada jugador coloca sus barcos en una cuadrícula sin que el oponente los vea.\nLuego, por turnos, disparan a coordenadas para intentar hundir los barcos enemigos.")
+print()
+print("Introduce tus coordenadas para disparar.\n")
 
 #Estoy creando instancia de la clase jugador
 usuario = Jugador()
@@ -17,14 +28,24 @@ while True:
     print()
     print("Estado del ordenador:")
     ordenador.imprimir_estado_jugador()
+    print()
     print("--------------------------")
     print()
     
     if turno == "usuario":
         print("Turno usuario:")
         
-        fila = int(input("Introduce la fila:"))
-        columna = int(input("Introduce la columna:"))
+        # Fila
+        fila = input("Introduce la fila:")
+        if not es_posicion_coordenada_valida(fila):
+            print(f"Coordenada para la fila invalida, introduce un número entre 1 y {TAMANO}")
+            continue
+        
+        # Columna
+        columna = input("Introduce la columna:")
+        if not es_posicion_coordenada_valida(columna):
+            print(f"Coordenada para la columna invalida, introduce un número entre 1 y {TAMANO}")
+            continue
         
         # dispara el usuario
         impacto = ordenador.recibir_disparo(fila, columna)

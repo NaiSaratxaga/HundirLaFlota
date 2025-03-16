@@ -43,7 +43,7 @@ while True:
     print("Estado del ordenador:")
     ordenador.imprimir_estado_jugador()
     print()
-    print("--------------------------")
+    print("----------------------------------------------------")
     print()
     # Si es el turno del usuario
     if turno == "usuario":
@@ -53,17 +53,23 @@ while True:
         fila = input("Introduce la fila:")
         if not es_posicion_coordenada_valida(fila):
             print(f"Coordenada para la fila invalida, introduce un número entre 1 y {TAMANO}")
+            print()
             continue
         
         # Columna
         columna = input("Introduce la columna:")
         if not es_posicion_coordenada_valida(columna):
             print(f"Coordenada para la columna invalida, introduce un número entre 1 y {TAMANO}")
+            print()
             continue
         
+        # Convertimos a entero el valor de las filas y las columnas
+        fila_validada = int(fila)
+        columna_validada = int(columna)
+        
         # El usuario dispara al ordenador y se registra el impacto
-        impacto = ordenador.recibir_disparo(fila, columna)
-        usuario.registrar_disparo(fila, columna, impacto)
+        impacto = ordenador.recibir_disparo(fila_validada, columna_validada)
+        usuario.registrar_disparo(fila_validada, columna_validada, impacto)
         
         # Si el usuario gana, termina el juego
         if usuario.he_ganado():

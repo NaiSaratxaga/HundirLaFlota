@@ -2,102 +2,37 @@ ANOTACIONES Y COMO EMPEZAR EL PROYECTO
 
 INICIAR juego
 
-DEFINIR constantes:
-    TAMAÑO_TABLERO = 10
-    SIMBOLO_AGUA = " "  (tengo que revisar como meter símbolos o  emoticonos o colores(de momento lo descarto))
-    SIMBOLO_BARCO = "B"
-    SIMBOLO_TOCADO = "X"
-    SIMBOLO_FALLO = "O"
+Inicio  
+│  
+├── Inicializar jugadores (usuario y ordenador)  
+│  
+├── Configurar tableros  
+│  
+├── Establecer turno en "usuario"  
+│  
+└── Bucle hasta encontrar un ganador:  
+    │  
+    ├── Mostrar estado del juego  
+    │  
+    ├── Si es turno del usuario:  
+    │   ├── Pedir coordenadas de disparo  
+    │   ├── Validar coordenadas  
+    │   ├── Registrar disparo y comprobar impacto  
+    │   ├── Si acierta → sigue disparando  
+    │   ├── Si falla → turno del ordenador  
+    │   └── Si ha ganado → salir del bucle  
+    │  
+    ├── Si es turno del ordenador:  
+    │   ├── Generar coordenadas aleatorias  
+    │   ├── Registrar disparo y comprobar impacto  
+    │   ├── Si acierta → sigue disparando  
+    │   ├── Si falla → turno del usuario  
+    │   └── Si ha ganado → salir del bucle  
+    │  
+    └── Fin del bucle  
 
-1.REPRESENTAR TABLERO
+Declarar ganador  
+Fin 
 
-DEFINIR función crear_tablero():
-    CREAR un tablero de TAMAÑO_TABLERO x TAMAÑO_TABLERO lleno de SIMBOLO_AGUA o VACIOS
-    RETORNAR tablero
-    *Tengo que hacer una lista de listas (matriz) para representar el tablero.
 
-DEFINIR función imprimir_tablero(tablero, ocultar_barcos):
-    PARA cada fila en tablero:
-        PARA cada celda en fila:
-            SI ocultar_barcos y celda es SIMBOLO_BARCO:
-                IMPRIMIR SIMBOLO_AGUA (no me está funcionando tema iconos)
-            SINO:
-                IMPRIMIR celda
-        IMPRIMIR nueva línea
---------------
-colocar barcos aleatorios
-punto 3
--------------
-2. COLOCAR BARCOS ALEATORIOS O FIJOS
-DEFINIR función colocar_barcos(tablero, lista_de_barcos):
-    PARA cada barco en lista_de_barcos:
-        MIENTRAS no pueda colocar barco:
-            GENERAR coordenada aleatoria
-            GENERAR dirección aleatoria (horizontal o vertical)
-            SI hay espacio suficiente y no hay barcos en la zona:
-                COLOCAR el barco en el tablero
-
-3.PEDIR COORDENADAS PARA DISPARAR
-DEFINIR función ataque(tablero, fila, columna):
-    SI la celda es SIMBOLO_BARCO:(ahora lo tengo como una B)
-        MARCAR como SIMBOLO_TOCADO
-        RETORNAR "Tocado"
-    SI la celda es SIMBOLO_AGUA:
-        MARCAR como SIMBOLO_FALLO
-        RETORNAR "Agua"
-    RETORNAR "Ya atacado"
-
-DEFINIR función juego():
-    CREAR tablero_jugador usando crear_tablero()
-    CREAR tablero_computadora usando crear_tablero()
-    
-    CREAR lista de barcos con tamaños [4, 3, 2, 1]
-
-    * 4 barcos de 1 posición de eslora
-    * 3 barcos de 2 posiciones de eslora
-    * 2 barcos de 3 posiciones de eslora
-    * 1 barco de 4 posiciones de eslora
-    
-    COLOCAR barcos en tablero_jugador
-    COLOCAR barcos en tablero_computadora
-    
-    MIENTRAS no haya ganador:
-        IMPRIMIR tablero de la computadora (sin mostrar barcos)
-        IMPRIMIR tablero del jugador
-        
-        PEDIR coordenadas de disparo al jugador
-        LLAMAR ataque(tablero_computadora, fila, columna)
-        
-        GENERAR disparo aleatorio de la computadora
-        LLAMAR ataque(tablero_jugador, fila, columna)
-        
-        COMPROBAR si alguien ha ganado
-
-    IMPRIMIR mensaje con el ganador
-
-LLAMAR juego()
-
-------------------------------------
-
-Explicación del flujo
-Crear los tableros: Se generan dos tableros de 10x10 (uno para el jugador y otro para la computadora).
-Colocar los barcos: Se colocan aleatoriamente barcos de distintos tamaños en ambos tableros.
-(me falta esa parte, ahora los tengo de forma fija)
-
-Turnos de disparo:
-El jugador ingresa coordenadas para disparar al tablero del ordenador.
-El ordenador genera coordenadas aleatorias para disparar al tablero del jugador.
-Verificación de impactos: Se comprueba si el disparo impacta un barco o cae al agua.
-Fin del juego: El juego termina cuando todos los barcos de un jugador son hundidos.
-
-----------------
-punto 3
-Como inicializar barcos aleatoriamente
-
-- generar coordenadas randint, generar números aleatorios.
-- Comprobar posición valida (repite hasta que que te da una posición válida)
-- Si es válida, colocar el barco
-  si no es válida
- genera otra vez coordenadas
-- Meter en un bucle while 
 
